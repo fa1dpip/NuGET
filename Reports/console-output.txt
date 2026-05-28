@@ -1,0 +1,17 @@
+Task 1 - Manual JSON file
+Type: user, Name: John Doe, Age: 30, City: New York
+
+Task 1 - XML reader example
+Type: user, Name: Laura Adams, Age: 28, City: Vilnius
+Type: user, Name: Mark Stone, Age: 35, City: Kaunas
+
+Task 2 - JSON object with several user entries
+Type: user, Name: John Doe, Age: 30, City: New York
+Type: user, Name: Austeja Petrauskaite, Age: 24, City: Vilnius
+Type: user, Name: Mantas Kazlauskas, Age: 31, City: Kaunas
+Type: user, Name: Emily Clark, Age: 27, City: Chicago
+
+Task 3 - Inheritance and specialized user types
+Type: admin, Name: Sarah Admin, Age: 34, City: Vilnius, Can manage users: True, Permissions: Create users, Edit users, Delete users
+Type: user, Name: Daniel User, Age: 22, City: Riga, Plan: Standard, Loyalty points: 120
+Type: moderator, Name: Milda Moderator, Age: 29, City: Klaipeda, Section: Community forum, Reports handled: 47
