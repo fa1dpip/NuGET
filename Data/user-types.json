@@ -1,0 +1,32 @@
+{
+  "Users": [
+    {
+      "Type": "admin",
+      "Name": "Sarah Admin",
+      "Age": 34,
+      "City": "Vilnius",
+      "CanManageUsers": true,
+      "Permissions": [
+        "Create users",
+        "Edit users",
+        "Delete users"
+      ]
+    },
+    {
+      "Type": "user",
+      "Name": "Daniel User",
+      "Age": 22,
+      "City": "Riga",
+      "SubscriptionPlan": "Standard",
+      "LoyaltyPoints": 120
+    },
+    {
+      "Type": "moderator",
+      "Name": "Milda Moderator",
+      "Age": 29,
+      "City": "Klaipeda",
+      "Section": "Community forum",
+      "ReportsHandled": 47
+    }
+  ]
+}

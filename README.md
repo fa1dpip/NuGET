@@ -25,3 +25,11 @@ dotnet run
 - Added `UserCollection` to match the JSON object structure.
 - Deserialized all entries from the JSON file into C# objects.
 - Added a `foreach` loop to output every user to the console.
+
+### Version 3 - Inheritance and user types
+
+- Extended the base `User` class with inherited user types.
+- Added `AdminUser`, `StandardUser`, and `ModeratorUser`.
+- Created `Data/user-types.json` with specialized user type data.
+- Deserialized each typed JSON entry into the correct inherited C# object.
+- Used a loop to output every specialized user to the console.

@@ -1,5 +1,6 @@
 using JsonNugetAssignment.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
 
 namespace JsonNugetAssignment;
@@ -25,6 +26,15 @@ internal static class Program
 
         // The loop is required because the JSON file now contains several entries.
         foreach (User user in users)
+        {
+            Console.WriteLine(user.ToConsoleLine());
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Task 3 - Inheritance and specialized user types");
+        List<User> typedUsers = ReadUsersByTypeFromJson("user-types.json");
+
+        foreach (User user in typedUsers)
         {
             Console.WriteLine(user.ToConsoleLine());
         }
@@ -62,6 +72,29 @@ internal static class Program
         UserCollection collection = JsonConvert.DeserializeObject<UserCollection>(json) ?? new UserCollection();
 
         return collection.Users;
+    }
+
+    private static List<User> ReadUsersByTypeFromJson(string fileName)
+    {
+        string json = File.ReadAllText(GetDataPath(fileName));
+        JObject root = JObject.Parse(json);
+        List<User> users = new();
+
+        // Each JSON entry is inspected, then deserialized into the matching inherited class.
+        foreach (JToken token in root["Users"] ?? new JArray())
+        {
+            string type = token.Value<string>("Type")?.ToLowerInvariant() ?? "user";
+            User user = type switch
+            {
+                "admin" => token.ToObject<AdminUser>() ?? new AdminUser(),
+                "moderator" => token.ToObject<ModeratorUser>() ?? new ModeratorUser(),
+                _ => token.ToObject<StandardUser>() ?? new StandardUser()
+            };
+
+            users.Add(user);
+        }
+
+        return users;
     }
 
     private static string GetDataPath(string fileName)
