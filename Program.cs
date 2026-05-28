@@ -18,6 +18,16 @@ internal static class Program
         {
             Console.WriteLine(user.ToConsoleLine());
         }
+
+        Console.WriteLine();
+        Console.WriteLine("Task 2 - JSON object with several user entries");
+        List<User> users = ReadUsersFromJson("users.json");
+
+        // The loop is required because the JSON file now contains several entries.
+        foreach (User user in users)
+        {
+            Console.WriteLine(user.ToConsoleLine());
+        }
     }
 
     private static User ReadSingleJsonUser(string fileName)
@@ -44,6 +54,14 @@ internal static class Program
         }
 
         return users;
+    }
+
+    private static List<User> ReadUsersFromJson(string fileName)
+    {
+        string json = File.ReadAllText(GetDataPath(fileName));
+        UserCollection collection = JsonConvert.DeserializeObject<UserCollection>(json) ?? new UserCollection();
+
+        return collection.Users;
     }
 
     private static string GetDataPath(string fileName)
