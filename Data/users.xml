@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<users>
+  <user>
+    <name>Laura Adams</name>
+    <age>28</age>
+    <city>Vilnius</city>
+  </user>
+  <user>
+    <name>Mark Stone</name>
+    <age>35</age>
+    <city>Kaunas</city>
+  </user>
+</users>
